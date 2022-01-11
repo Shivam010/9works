@@ -22,7 +22,7 @@ export default function Index() {
                     {/* <span className="capsized text-pink-600">Tool Kit</span> */}
                 </h1>
                 <p className="mb-12 first-letter:ml-1">
-                    <span className="text-5xl -ml-2 pr-2 float-left animate-hi">
+                    <span className="text-5xl -ml-2 -mt-6 pr-2 float-left animate-hi">
                         👋
                     </span>{' '}
                     Hi, I am Shivam Rathore, Senior Software Developer at
@@ -42,23 +42,21 @@ export default function Index() {
                     why 9works ?
                 </h2>
                 <p className="mb-16">
-                    Just like the HTTP status code:{' '}
+                    Well, there isn't any valid explanation or reason for this.
+                    It's like{' '}
                     <a
                         href="https://httpstatuses.com/418"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        418
-                    </a>{' '}
-                    status code exist The resulting entity body MAY be short and
-                    stout. More info on this{' '}
-                    <a
-                        href="https://httpstatuses.com/418"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        here
+                        Status code - 418 I'm a teapot
                     </a>
+                    , <code className="customCode">9works</code> exists but for
+                    fun. One can assume that, the number{' '}
+                    <code className="customCode">9</code> in{' '}
+                    <code className="customCode">9works</code> is from the nine
+                    planets and the <code className="customCode">works</code> -
+                    it is self explanatory.
                 </p>
                 <Link href="https://shivamrathore.com/">
                     <a className="p-4 w-64 font-bold mx-auto bg-rang-200 dark:bg-rang-800 text-center rounded-md text-black dark:text-white">

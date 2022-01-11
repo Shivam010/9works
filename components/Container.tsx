@@ -73,10 +73,10 @@ export function Container({
                 <nav className="flex items-center justify-between w-full relative max-w-4xl mx-auto pt-8 pb-10 bg-opacity-60">
                     <Link href={'/'}>
                         <a className="-ml-2 font-bold font-logo text-3xl select-none hover:scale-125 -rotate-6 duration-700">
-                            <span className="hidden sm:block">
+                            <span className="select-none hidden sm:block">
                                 9works.<span className="text-pink-600">tk</span>
                             </span>
-                            <span className="block sm:hidden -mt-3">
+                            <span className="select-none block sm:hidden -mt-3">
                                 {/* <Image
                                     alt="9w"
                                     src={'/images/logo.png'}

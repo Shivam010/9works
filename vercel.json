@@ -1,0 +1,44 @@
+{
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "headers": [
+        {
+            "source": "/fonts/Brightwall_Regular.woff2",
+            "headers": [
+              {
+                "key": "Cache-Control",
+                "value": "public, max-age=31536000, immutable"
+              }
+            ]
+          },
+          {
+            "source": "/fonts/Open_Sans.woff2",
+            "headers": [
+              {
+                "key": "Cache-Control",
+                "value": "public, max-age=31536000, immutable"
+              }
+            ]
+          },
+          {
+            "source": "/fonts/Open_Sans_Italic.woff2",
+            "headers": [
+              {
+                "key": "Cache-Control",
+                "value": "public, max-age=31536000, immutable"
+              }
+            ]
+          }
+    ],
+    "redirects": [
+        {
+          "source": "/creator.jpeg",
+          "destination": "/me.jpeg"
+        },
+        {
+          "source": "/author.jpeg",
+          "destination": "/me.jpeg"
+        }
+    ]
+  }
+  

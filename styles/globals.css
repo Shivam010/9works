@@ -77,6 +77,10 @@ pre {
     scrollbar-width: none; /* Firefox */
 }
 
+.customCode {
+    @apply font-mono p-0.5 text-sm font-bold border-rang-700 rounded-lg border;
+}
+
 table {
     display: block;
     max-width: fit-content;
