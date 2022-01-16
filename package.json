@@ -9,16 +9,14 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "cp": "cp ./pages/404.tsx ./pages/418.tsx && cp ./LICENSE ./public/license",
+    "dev": "yarn cp && next dev",
+    "build": "yarn cp && next build",
+    "start": "next start"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.0",
-    "contentlayer": "^0.0.33",
     "next": "^12.0.7",
-    "next-contentlayer": "^0.0.33",
     "next-themes": "^0.0.15",
     "react": "17.0.2",
     "react-dom": "17.0.2",

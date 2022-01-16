@@ -52,12 +52,9 @@ export default function Document(props) {
                 />
                 <meta
                     name="apple-mobile-web-app-title"
-                    content="9works by Shivam Rathore - Shivam010"
+                    content="9works - Shivam's Micro Space"
                 />
-                <meta
-                    name="application-name"
-                    content="9works by Shivam Rathore - Shivam010"
-                />
+                <meta name="application-name" content="9works" />
                 <link rel="shortcut icon" href="/favicons/favicon.ico" />
                 <meta name="msapplication-TileColor" content="#0a0a0c" />
                 <meta

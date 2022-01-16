@@ -1,0 +1,196 @@
+<style>
+    :root {
+        color-scheme: light dark;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0 auto;
+        padding: 4em;
+        max-width: 60em;
+        font-family: 'Open Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont,
+            Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    }
+
+    table {
+        margin-top: 4em;
+        width: 100%;
+        border-spacing: 0;
+    }
+
+    tr {
+        border-bottom: 1px solid;
+    }
+
+    th {
+        border-bottom: 1px solid;
+        padding: 0 0 1em;
+        text-align: left;
+    }
+
+    td {
+        padding: 1.5em 0;
+    }
+</style>
+
+<body>
+    <h1>Dark Mode Controls Demo: CSS Property</h1>
+    <p>
+        This demo shows how controls respond
+        <code>color-scheme: light dark;</code> set on the document
+        <code>:root</code>.
+    </p>
+    <p>
+        The controls will render with a light or dark user agent scheme,
+        according to the user's preferred scheme. To try this out on Windows, go
+        to Settings app > Personalization > Colors and modify 'Choose your
+        color'.
+    </p>
+    <table>
+        <thead>
+            <tr>
+                <th>Control name</th>
+                <th>Rendered control</th>
+            </tr>
+            <tr>
+                <td>Checkbox</td>
+                <td>
+                    <input type="checkbox" /> <input type="checkbox" checked />
+                </td>
+            </tr>
+            <tr>
+                <td>Radio</td>
+                <td><input type="radio" /> <input type="radio" checked /></td>
+            </tr>
+            <tr>
+                <td>Button</td>
+                <td><input type="button" value="Button" /></td>
+            </tr>
+            <tr>
+                <td>Text</td>
+                <td>
+                    <input type="text" value="Text value here" />
+                    <input type="text" placeholder="Placeholder here" />
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" value="value" /></td>
+            </tr>
+            <tr>
+                <td>Number</td>
+                <td><input type="number" value="4" /></td>
+            </tr>
+            <tr>
+                <td>Textarea</td>
+                <td><textarea>Text value here</textarea></td>
+            </tr>
+            <tr>
+                <td>Select</td>
+                <td>
+                    <select>
+                        <option>value 1</option>
+                        <option>value 2</option>
+                        <option>value 3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Select: Multiple</td>
+                <td>
+                    <select multiple>
+                        <option>value 1</option>
+                        <option>value 2</option>
+                        <option>value 3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Range</td>
+                <td><input type="range" /></td>
+            </tr>
+            <tr>
+                <td>Progress</td>
+                <td><progress max="100" value="75">75%</progress></td>
+            </tr>
+            <tr>
+                <td>Meter</td>
+                <td>
+                    <meter
+                        min="0"
+                        max="100"
+                        low="33"
+                        high="66"
+                        optimum="80"
+                        value="66"
+                    >
+                        at 66/100
+                    </meter>
+                </td>
+            </tr>
+            <tr>
+                <td>Color</td>
+                <td>
+                    <datalist id="colorslist">
+                        <option value="#00ffff" />
+                        <option value="#ff00ff" />
+                        <option value="#ffff00" />
+                        <option value="#ffaa00" />
+                    </datalist>
+                    <input type="color" />
+                    <input type="color" list="colorslist" />
+                </td>
+            </tr>
+            <tr>
+                <td>Date, Week, Month</td>
+                <td>
+                    <input type="date" /> <input type="week" />
+                    <input type="month" />
+                </td>
+            </tr>
+            <tr>
+                <td>Time, Datetime Local</td>
+                <td><input type="time" /> <input type="datetime-local" /></td>
+            </tr>
+            <tr>
+                <td>Datalist</td>
+                <td>
+                    <input
+                        type="text"
+                        list="ice-cream-flavors"
+                        id="ice-cream-choice"
+                        name="ice-cream-choice"
+                    />
+                    <datalist id="ice-cream-flavors">
+                        <option value="Chocolate"></option>
+                        <option value="Coconut"></option>
+                        <option value="Mint"></option>
+                        <option value="Strawberry"></option>
+                        <option value="Vanilla"></option>
+                    </datalist>
+                </td>
+            </tr>
+            <tr>
+                <td>File</td>
+                <td><input type="file" value="value" /></td>
+            </tr>
+            <tr>
+                <td>Search</td>
+                <td><input type="search" value="value" /></td>
+            </tr>
+            <tr>
+                <td>Link</td>
+                <td>
+                    <a
+                        href="https://www.w3.org/TR/css-color-adjust-1/#color-scheme-prop"
+                        ><code>color-scheme</code> property</a
+                    >
+                </td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
