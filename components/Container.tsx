@@ -32,8 +32,8 @@ export function Container({
 
     const meta: Metadata = {
         title: '9works - A Micro Space of Shivam for tinkering with ideas',
-        description: `A Micro Space for tinkering and experimenting with ideas and new technologies. And a part of the multiverse of Shivam Rathore's imagination.`,
-        image: '/banner.png',
+        description: `A Micro Space for tinkering and experimenting with ideas and new technologies. A part of the multiverse of Shivam Rathore's imagination.`,
+        image: 'https://9works.tk/banner.png',
         ogType: 'website',
         ...metadata,
     };
