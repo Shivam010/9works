@@ -88,6 +88,10 @@ export function getStaticProps() {
             endpoint: '/',
         },
         {
+            title: 'utter Nuisance',
+            endpoint: '/utter-nuisance',
+        },
+        {
             title: 'Graphql Playground',
             endpoint: 'https://gql.rathore.ml/',
             isExternal: true,
