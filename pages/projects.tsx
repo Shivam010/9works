@@ -105,6 +105,12 @@ export function getStaticProps() {
             endpoint: '/o/opener/index.html',
         },
         {
+            title: 'Redact Git Histories',
+            endpoint:
+                'https://gist.github.com/Shivam010/155ef4331a247908dde0ca6120a108e7',
+            isExternal: true,
+        },
+        {
             title: "418 - i'm a teapot",
             endpoint: '/418',
         },
