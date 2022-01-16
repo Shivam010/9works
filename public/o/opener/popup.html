@@ -1,0 +1,13 @@
+<script>
+    window.opener.postMessage(
+        {
+            type: 'callback_response_type',
+            error: 'callback_error_if_any',
+        },
+        '*',
+    );
+    window.close();
+</script>
+<body style="background-color: #0a0a0c; color: #ffffff; font-family: monospace">
+    Sending 'callback_response_type' response to the opener...
+</body>

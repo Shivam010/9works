@@ -1,12 +1,15 @@
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
-    content: ['./pages/**/*.tsx', './components/**/*.tsx'],
+    content: [
+        './pages/**/*.{js,jsx,ts,tsx}',
+        './components/**/*.{js,jsx,ts,tsx}',
+    ],
     darkMode: 'class',
     theme: {
         extend: {
             screens: {
-                esm: '512px',
+                xs: '512px',
             },
             colors: {
                 rang: {
@@ -37,6 +40,9 @@ module.exports = {
                     },
                     '50%': { transform: 'rotate(10deg) skew(-20deg, 20deg)' },
                 },
+            },
+            backgroundImage: {
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
             },
         },
         typography: (theme) => ({}),

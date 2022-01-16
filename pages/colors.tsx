@@ -99,14 +99,14 @@ var box = (sc: { size?: number; color: string; other?: string }) => {
                 className={`${bgCl} w-full h-10 rounded ring-1 ring-inset ring-white/10 `}
             ></div>
             <div className="flex flex-col items-center tracking-wider ">
-                <div className="font-medium text-gray-900 2xl:w-full dark:text-white">
+                <div className="font-medium text-rang-900 2xl:w-full dark:text-white">
                     {sc.size ? sc.size : sc.other}
                 </div>
-                <div className="text-gray-500 dark:text-gray-400">
+                <div className="text-rang-500 dark:text-rang-400">
                     {sc.color}
                 </div>
             </div>
-            <div className="w-fit m-auto text-gray-500 dark:text-gray-400">
+            <div className="w-fit m-auto text-rang-500 dark:text-rang-400">
                 {sc.size ? sc.other : ''}
             </div>
         </div>

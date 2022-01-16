@@ -1,0 +1,34 @@
+<body style="background-color: #0a0a0c; color: #ffffff; font-family: monospace">
+    <h3>Open 'popup' and get the response in return</h3>
+    <button onclick="onClick()">popup</button>
+    <div id="response"></div>
+</body>
+<script>
+    let no = 0;
+    const response = document.getElementById('response');
+
+    const onClick = () => window.open('/o/opener/popup.html');
+    const handleResponse = (data) => {
+        ++no;
+        console.log(`Response no. ${no} from children `, data);
+        if (!response.innerHTML)
+            response.innerHTML = `
+                <br/> 
+                <hr/>
+                <h3>Responses From children</h3>
+            `;
+        response.innerHTML += `
+            Response no. ${no}: ${JSON.stringify(data)} 
+            <br/>
+        `;
+    };
+
+    window.addEventListener(
+        'message',
+        (e) => {
+            if (e.data && e.data.type === 'callback_response_type')
+                handleResponse(e.data);
+        },
+        false,
+    );
+</script>

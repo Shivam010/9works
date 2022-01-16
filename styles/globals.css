@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .in-between-tighter {
+        word-spacing: -0.5rem;
+    }
+    .in-between-tight {
+        word-spacing: -0.25rem;
+    }
+    .in-between-normal {
+        word-spacing: 0rem;
+    }
+    .in-between-wide {
+        word-spacing: 0.25rem;
+    }
+    .in-between-wider {
+        word-spacing: 0.5rem;
+    }
+}
+
 @font-face {
     font-family: 'Open Sans';
     font-style: normal;
@@ -40,32 +58,15 @@ html {
     scroll-behavior: smooth;
 }
 
+p {
+    line-height: 160%;
+    word-spacing: 0.08rem;
+}
+
 #__next {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-}
-
-.prose pre {
-    @apply border border-rang-200 bg-rang-0 dark:border-rang-700 dark:bg-rang-900;
-}
-
-.prose code {
-    @apply text-rang-800 dark:text-rang-200 px-1 py-0.5 border border-rang-100 dark:border-rang-800 rounded-lg bg-rang-100 dark:bg-rang-900;
-}
-
-.prose pre code {
-    @apply text-rang-800 dark:text-rang-200 p-0;
-    border: initial;
-}
-
-.prose img {
-    /* Don't apply styles to next/image */
-    @apply m-0;
-}
-
-.prose a {
-    @apply transition-all;
 }
 
 pre::-webkit-scrollbar {
@@ -81,11 +82,8 @@ pre {
     @apply font-mono p-0.5 text-sm font-bold border-rang-700 rounded-lg border;
 }
 
-table {
-    display: block;
-    max-width: fit-content;
-    overflow-x: auto;
-    white-space: nowrap;
+blockquote {
+    @apply border-l-4 border-l-pink-700 pl-4 italic py-2;
 }
 
 /* https://seek-oss.github.io/capsize/ */
