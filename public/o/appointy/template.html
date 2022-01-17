@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    style="margin: 0; padding: 0; box-sizing: border-box"
+>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Abril+FatFace|Alegreya|Archivo|Arvo|B612|BioRhyme|Cardo|Concert+One|Cormorant|Crimson+Text|Exo+2|Fira+Sans|Fjalla+One|Frank+Ruhl+Libre|Helvetica|IBM+Plex|Karla|Lato|Lora|Merriweather|Montserrat|Muli|Noto+Sans|Nunito|Old+Standard+TT|Open+Sans|Oswald|Oxygen|PT+Sans|PT+Serif|Playfair+Display|Poppins|Rakkas|Roboto|Rubik|Source+Sans+Pro|Source+Sans|Spectral|Titillium+Web|Ubuntu|Varela|Vollkorn|Work+Sans|Yatra+One&amp;display=swap"
+            rel="stylesheet"
+            id="google-fonts"
+        />
+    </head>
+
+    <body style="box-sizing: inherit; margin: 0; padding: 0">
+        <div
+            style="
+                background-color: #eee;
+                padding: 16px 16px 16px 16px;
+                box-sizing: border-box;
+            "
+        >
+            <div
+                style="
+                    position: relative;
+                    width: 600px;
+                    border-radius: 0px;
+                    box-sizing: border-box;
+                    background-color: #fff;
+                    font-family: Helvetica, serif;
+                    padding: 0px 0px 0px 0px;
+                    color: #000;
+                    margin: auto;
+                    font-size: 18px;
+                    font-weight: 300;
+                "
+            >
+                <div style="box-sizing: inherit; position: relative">
+                    <div
+                        style="
+                            padding: 48px 48px 24px 48px;
+                            background-position: center center;
+                            background-size: cover;
+                            width: 100%;
+                            box-sizing: border-box;
+                            text-align: left;
+                        "
+                    >
+                        {% if business.logo == "" %}
+                        <div
+                            style="
+                                box-sizing: inherit;
+                                width: 100%;
+                                font-size: 24px;
+                                line-height: 18px;
+                                font-weight: 600;
+                                letter-spacing: 0px;
+                            "
+                        >
+                            {{business.name}}
+                        </div>
+                        {% endif %} {% if business.logo != "" %}
+                        <img
+                            src="{{business.logo}}"
+                            style="
+                                box-sizing: inherit;
+                                max-width: 100%;
+                                width: auto;
+                                height: 80px;
+                                border-radius: 4px;
+                            "
+                            alt
+                            height="80"
+                        />
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div style="box-sizing: inherit; position: relative">
+                    <div
+                        style="
+                            padding: 24px 48px 24px 48px;
+                            background-position: center center;
+                            background-size: cover;
+                            width: 100%;
+                            box-sizing: border-box;
+                            text-align: left;
+                        "
+                    >
+                        <div
+                            style="
+                                box-sizing: inherit;
+                                width: 100%;
+                                font-size: 14px;
+                                line-height: 18px;
+                                font-weight: 400;
+                                letter-spacing: 0px;
+                            "
+                        >
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                Dear
+                                <span
+                                    class="suggestion"
+                                    data-value="{{recipientName}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{recipientName}}</span
+                                    > </span
+                                >,
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                <br style="box-sizing: inherit" />
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                Thank you for booking a lesson at Cana Elite
+                                Education Centre. The following lesson(s) is/are
+                                tentatively booked.&nbsp;
+                            </p>
+                            {% for appointment in appointments %}
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                <br style="box-sizing: inherit" />
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                <strong style="box-sizing: inherit"
+                                    >Lesson details</strong
+                                >:
+                                <span
+                                    class="suggestion"
+                                    data-value="{{appointment.service.name}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{appointment.service.name}}</span
+                                    >
+                                </span>
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                <strong style="box-sizing: inherit"
+                                    >Lesson date and time</strong
+                                >:
+                                <span
+                                    class="suggestion"
+                                    data-value="{{appointment.startTime}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{appointment.startTime}}</span
+                                    >
+                                </span>
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                <strong style="box-sizing: inherit"
+                                    >Student timezone</strong
+                                >:
+                                <span
+                                    class="suggestion"
+                                    data-value="{{recipientTimezone}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{recipientTimezone}}</span
+                                    >
+                                </span>
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                <strong style="box-sizing: inherit"
+                                    >Duration of lesson</strong
+                                >:
+                                <span
+                                    class="suggestion"
+                                    data-value="{{appointment.service.duration}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{appointment.service.duration}}</span
+                                    >
+                                </span>
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                <strong style="box-sizing: inherit"
+                                    >Tutor</strong
+                                >:
+                                <span
+                                    class="suggestion"
+                                    data-value="{{appointment.staff.firstName}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{appointment.staff.firstName}}</span
+                                    >
+                                </span>
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                <strong style="box-sizing: inherit"
+                                    >Branch</strong
+                                >:
+                                <span
+                                    class="suggestion"
+                                    data-value="{{business.location}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{business.location}}</span
+                                    >
+                                </span>
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                <br style="box-sizing: inherit" />
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                Lessons are only confirmed when payment is made
+                                within 48 hours of booking. Please kindly send
+                                us your proof of payment to cana@canaelite.com.
+                                You can check the payment details at “Payment
+                                Method” upon logging in to the booking portal.
+                                If you have any questions about the payment,
+                                please do not hesitate to contact us at
+                                cana@canaelite.com or call us at
+                                <span
+                                    class="suggestion"
+                                    data-value="{{business.phone}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{business.phone}}</span
+                                    > </span
+                                >.
+                            </p>
+                            <div
+                                style="
+                                    padding: 24px 48px 24px 48px;
+                                    background-position: center center;
+                                    background-size: cover;
+                                    width: 100%;
+                                    box-sizing: border-box;
+                                    text-align: left;
+                                "
+                            >
+                                <a
+                                    style="
+                                        box-sizing: inherit;
+                                        text-decoration: none;
+                                        box-shadow: none;
+                                        font-size: 14px;
+                                        line-height: 14px;
+                                        font-weight: 500;
+                                        letter-spacing: 0px;
+                                        color: #fff;
+                                        background-color: #1f8b73;
+                                        border-radius: 4px;
+                                        border-width: 1px;
+                                        border-style: solid;
+                                        border-color: #1f8b73;
+                                        padding: 14px 28px 14px 28px;
+                                        text-align: center;
+                                        display: inline-block;
+                                        width: 100%;
+                                    "
+                                    href="{{appointment.rescheduleLink}}"
+                                >
+                                    Reschedule Appointment
+                                </a>
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+
+                <div style="box-sizing: inherit; position: relative">
+                    <div
+                        style="
+                            padding: 24px 48px 24px 48px;
+                            background-position: center center;
+                            background-size: cover;
+                            width: 100%;
+                            box-sizing: border-box;
+                            text-align: left;
+                        "
+                    >
+                        <div
+                            style="
+                                box-sizing: inherit;
+                                width: 100%;
+                                font-size: 14px;
+                                line-height: 18px;
+                                font-weight: 400;
+                                letter-spacing: 0px;
+                            "
+                        >
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                If you require further assistance with your
+                                lesson or have any questions, you can reach us
+                                at:
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                <br style="box-sizing: inherit" />
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                Address:
+                                <span
+                                    class="suggestion"
+                                    data-value="{{business.address}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{business.address}}</span
+                                    >
+                                </span>
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                Email:
+                                <span
+                                    class="suggestion"
+                                    data-value="{{business.email}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{business.email}}</span
+                                    >
+                                </span>
+                            </p>
+                            <p
+                                style="
+                                    box-sizing: inherit;
+                                    margin: 0;
+                                    padding: 0;
+                                    counter-reset: list-0 list-1 list-2 list-3
+                                        list-4 list-5 list-6 list-7 list-8
+                                        list-9;
+                                    font-size: 100%;
+                                    font-weight: normal;
+                                "
+                            >
+                                Phone:
+                                <span
+                                    class="suggestion"
+                                    data-value="{{business.phone}}"
+                                    style="box-sizing: inherit"
+                                >
+                                    <span
+                                        contenteditable="false"
+                                        style="box-sizing: inherit"
+                                        >{{business.phone}}</span
+                                    >
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {% if branding %} {{footer}} {% endif %}
+            </div>
+        </div>
+    </body>
+</html>
