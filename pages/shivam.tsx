@@ -8,7 +8,10 @@ import me from 'public/shivam.png';
 
 export default function About() {
     const heading = (
-        <ExternalLink href={''} className="text-6xl leading-relaxed">
+        <ExternalLink
+            href="https://shivamrathore.com"
+            className="text-6xl leading-relaxed"
+        >
             <span className="text-pink-700">Shivam</span> Rathore
         </ExternalLink>
     );

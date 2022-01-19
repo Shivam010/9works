@@ -4,6 +4,12 @@ export default function Document(props) {
     return (
         <Html lang="en">
             <Head>
+                {/* Count and analysis */}
+                <link
+                    rel="preconnect"
+                    href="https://9works.goatcounter.com"
+                    crossOrigin=""
+                />
                 {/* Font tags */}
                 <link
                     rel="preload"
