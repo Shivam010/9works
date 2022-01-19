@@ -26,7 +26,7 @@ export default function Concurrency() {
                             Concurrency is not Parallelism
                         </h2>
                     </ExternalLink>
-                    <p>Presentation By Robe Pike At Waza Jan 11, 2012</p>
+                    <h3>Presentation By Robe Pike At Waza Jan 11, 2012</h3>
                 </blockquote>
 
                 <h2 className="font-logo text-3xl mb-8">
@@ -80,7 +80,7 @@ export default function Concurrency() {
                 </h2>
                 <div className="mb-10">
                     <ImageWithDescription
-                        description="Multiple Gophers trying to complete one task at a time"
+                        description="Multiple Gophers trying to complete one task at a time - Concurrency"
                         height="186"
                         width="759"
                         placeholder="blur"
@@ -91,7 +91,7 @@ export default function Concurrency() {
             <p className=" w-full ml-6">
                 Check out it's{' '}
                 <ExternalLink href="https://github.com/Shivam010/concurrency-vs-parallelism">
-                    <span className="text-pink-700 align-middle hover:underline underline-offset-4">
+                    <span className="font-bold text-pink-700 align-middle hover:underline underline-offset-4">
                         Code here
                     </span>
                 </ExternalLink>{' '}

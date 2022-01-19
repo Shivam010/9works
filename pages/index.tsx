@@ -11,22 +11,16 @@ export default function Index() {
                     className="select-none flex flex-col mx-auto justify-center items-center font-logo text-4xl xs:text-5xl mb-12"
                 >
                     <span className="capsized">Welcome to 9works </span>
-                    <a
-                        href="https://shivamrathore.com/"
-                        className="capsized text-pink-700"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Shivam's{' '}
-                    </a>
+                    <Link href="/shivam">
+                        <a className="capsized text-pink-700">Shivam's </a>
+                    </Link>
                     <span className="capsized -translate-x-2">Micro Space</span>
                 </h1>
                 <p className="mb-16">
                     <span className="text-5xl -ml-2 -mt-6 pr-2 float-left animate-hi">
                         👋
                     </span>{' '}
-                    Hi, I am Shivam Rathore, Senior Software Developer at
-                    Appointy.{' '}
+                    Hi, I am Shivam Rathore, a Software Developer.{' '}
                     <span className="font-logo align-middle">9works</span> is my
                     micro space for tinkering with new technologies, and
                     experimenting different ideas, and lots more. It is a small

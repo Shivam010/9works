@@ -9,9 +9,10 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "cp": "cp ./pages/404.tsx ./pages/418.tsx && cp ./LICENSE ./public/license",
-    "dev": "yarn cp && next dev",
-    "build": "yarn cp && next build",
+    "copy": "cp ./pages/404.tsx ./pages/418.tsx && cp ./LICENSE ./public/license",
+    "generate": "yarn copy && node ./scripts/generate-sitemap.mjs",
+    "dev": "yarn generate && next dev",
+    "build": "yarn generate && next build",
     "start": "next start"
   },
   "dependencies": {
@@ -29,8 +30,6 @@
     "eslint-config-next": "11.1.0",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
-    "remark-gfm": "^3.0.1",
-    "rss": "^1.2.2",
     "typescript": "^4.5.4"
   },
   "prettier": {
