@@ -1,12 +1,8 @@
-import {
-    BigButton,
-    ExternalLink,
-    ImageWithDescription,
-} from 'components/Others';
+import { BigButton, ExternalLink } from 'components/Others';
 import Layout from 'components/Layout';
 import Link from 'next/link';
 
-export default function NotFound() {
+export default function UtterNuisance() {
     const heading = (
         <>
             <span className="text-pink-700">utter</span> Nuisance
@@ -22,20 +18,20 @@ export default function NotFound() {
                             Don't judge a book by its cover,
                         </h2>
                     </ExternalLink>
-                    <p>
+                    <h3>
                         "An English metaphorical phrase that means one should
                         not judge the worth or value of something by its outward
                         appearance alone."
-                    </p>
+                    </h3>
                 </blockquote>
                 <blockquote className="mb-5" title="wiki.org/nuisance">
                     <h2 className="inline font-bold text-pink-700">
-                        <Link href="/shivam">By Shivam,</Link>
+                        <Link href="/shivam">By Shivam Rathore,</Link>
                     </h2>
-                    <p>
+                    <h3>
                         "Even the smallest creatures like Ants can kill, so
                         don't underestimate anyone."
-                    </p>
+                    </h3>
                 </blockquote>
                 <blockquote className="mb-5" title="twitter/010Shivam">
                     <ExternalLink href="https://twitter.com/010Shivam/status/1481720479442698241 ">
@@ -43,19 +39,19 @@ export default function NotFound() {
                             010Shivam believes,
                         </h2>
                     </ExternalLink>
-                    <p>
+                    <h3>
                         "The thing that I liked the most in this multiverse is
                         'the end', becase it is what marks the new beginning"
-                    </p>
+                    </h3>
                 </blockquote>
                 <blockquote>
                     <h2 className="inline font-bold text-pink-700">
-                        <Link href="/shivam">Me,</Link>
+                        <Link href="/shivam">About Me,</Link>
                     </h2>
-                    <p>
+                    <h3>
                         It's not that I am weird. It's just that everyone else
                         is a way more normal ~ Living at work
-                    </p>
+                    </h3>
                 </blockquote>
             </div>
             <BigButton href="/projects" className="w-64 mx-auto mt-8 -mb-12">

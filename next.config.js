@@ -12,17 +12,24 @@ module.exports = {
                 source: '/favicon.ico',
                 destination: '/favicons/favicon.ico',
             },
+        ];
+    },
+    redirects: async () => {
+        return [
+            {
+                source: '/about',
+                destination: '/',
+                permanent: false,
+            },
             {
                 source: '/creator',
-                destination: '/shivam.png',
+                destination: '/shivam',
+                permanent: true,
             },
             {
                 source: '/author',
-                destination: '/shivam.png',
-            },
-            {
-                source: '/shivam',
-                destination: '/shivam.png',
+                destination: '/shivam',
+                permanent: true,
             },
         ];
     },
@@ -50,12 +57,10 @@ async function headers() {
         },
     ];
     const cachedSources = [
-        '/shivam:slug*',
+        '/shivam.png',
         '/shivam/:slug*',
         '/fonts/:slug*',
         '/images/:slug*',
-        '/creator',
-        '/author',
         '/license',
     ];
     res.push(

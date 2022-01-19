@@ -77,6 +77,9 @@ export default function Footer() {
                         <FooterLinks href="https://gql.rathore.ml/">
                             Graphql Play*
                         </FooterLinks>
+                        <FooterLinks isInternal href="/shivam">
+                            About Shivam
+                        </FooterLinks>
                         {/* Keep 418 at last */}
                         <FooterLinks
                             isInternal
@@ -111,7 +114,7 @@ export default function Footer() {
                     >
                         {themeMode}
                     </button>
-                    <FooterLinks href="https://shivamrathore.com">
+                    <FooterLinks isInternal href="/shivam">
                         <span className="flex flex-col font-logo text-sm xs:text-base sm:text-xl dark:text-rang-300 text-rang-500 hover:text-rang-600">
                             <span className="text-xs xs:text-sm pb-3 pr-1">
                                 made with love by

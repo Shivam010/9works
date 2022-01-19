@@ -1,7 +1,6 @@
 import Layout from 'components/Layout';
 import { BigButton, ExternalLink } from 'components/Others';
 import Link from 'next/link';
-import { ReactNode } from 'react';
 
 export default function Projects({ projects }: { projects: Project[] }) {
     const heading = (
@@ -11,19 +10,26 @@ export default function Projects({ projects }: { projects: Project[] }) {
     );
 
     return (
-        <Layout metadata={{ title: 'Projects at 9works' }} heading={heading}>
+        <Layout
+            metadata={{
+                title: 'Projects at 9works',
+                description:
+                    'An undertaking, carried out individually or collaboratively for the sack of fun - learning and experiments',
+            }}
+            heading={heading}
+        >
             <blockquote className="mb-5" title="wiki.org/project">
                 <ExternalLink href="https://en.wikipedia.org/wiki/Project">
                     <h2 className="inline font-bold text-pink-700">
                         Wikipedia says,
                     </h2>
                 </ExternalLink>
-                <p>
+                <h3>
                     "A Project (or Program) is an undertaking, carried out
                     individually or collaboratively and possibly involving
                     research or design, that is carefully planned to achieve a
                     particular aim."
-                </p>
+                </h3>
             </blockquote>
             <p className="mb-5">
                 <span className="text-[3.5rem] leading-8 mt-2 pr-1 float-left">
@@ -32,11 +38,11 @@ export default function Projects({ projects }: { projects: Project[] }) {
                 ut, any Project at{' '}
                 <span className="font-logo align-middle">9works</span> is mostly
                 carried out individually by{' '}
-                <ExternalLink href="https://shivamrathore.com">
-                    <span className="text-pink-700 hover:underline underline-offset-4">
+                <Link href="/shivam">
+                    <a className="font-bold text-pink-700 hover:underline underline-offset-4">
                         Shivam Rathore
-                    </span>
-                </ExternalLink>
+                    </a>
+                </Link>
                 , just for the sack of fun - learning and experiments. These
                 projects are mostly UI design related, or some test suits which
                 I decided to include, along with any serverless actions.
@@ -52,7 +58,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
             <p className="-mb-16 w-full ml-6">
                 Check out{' '}
                 <ExternalLink href="https://github.com/Shivam010">
-                    <span className="text-pink-700 align-middle hover:underline underline-offset-4">
+                    <span className="font-bold text-pink-700 align-middle hover:underline underline-offset-4">
                         my GitHub profile
                     </span>
                 </ExternalLink>{' '}
