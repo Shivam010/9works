@@ -1,9 +1,15 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
-export default function Document(props) {
+export default function Document() {
     return (
         <Html lang="en">
             <Head>
+                {/* Count and analysis */}
+                <link
+                    rel="preconnect"
+                    href={process.env.NEXT_PUBLIC_GOAT_COUNTER_ENDPOINT}
+                    crossOrigin=""
+                />
                 {/* Font tags */}
                 <link
                     rel="preload"
