@@ -52,6 +52,15 @@ export default function About() {
                     and paper planes. Sometimes, I doodle, mostly when I am
                     borred and/or in any long meeting :P
                 </p>
+                <p className="mb-4">
+                    I can solve{' '}
+                    <ExternalLink href="https://en.wikipedia.org/wiki/Rubik's_Cube">
+                        <span className="font-bold text-pink-700 hover:underline underline-offset-4">
+                            2x2, 3x3, 4x4 and 5x5 Rubik's Cube
+                        </span>
+                    </ExternalLink>
+                    , with 3x3 cube in record time of <i>~1.7 minutes.</i>
+                </p>
                 <blockquote className="mb-5 italic" title="Shivam010">
                     <ExternalLink href="https://github.com/Shivam010">
                         I believe in Loyalty. I think it is a two-way street.
