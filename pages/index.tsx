@@ -57,7 +57,7 @@ export default function Index() {
 export function getStaticProps() {
     return {
         props: {
-            strictDarkMode: false,
+            strictDarkMode: true,
         },
     };
 }
