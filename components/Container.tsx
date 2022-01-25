@@ -17,7 +17,13 @@ export type Metadata = {
 export function Container({
     metadata,
     children,
-}: PropsWithChildren<{ metadata?: Metadata }>) {
+    hideLogo,
+    hideThemeButton,
+}: PropsWithChildren<{
+    metadata?: Metadata;
+    hideLogo?: boolean;
+    hideThemeButton?: boolean;
+}>) {
     const { forcedTheme, resolvedTheme, setTheme } = useTheme();
     const router = useRouter();
 
@@ -75,12 +81,13 @@ export function Container({
             </Head>
             <div className="flex flex-col justify-center px-8">
                 <nav className="flex items-center justify-between w-full relative max-w-[64rem] mx-auto md:px-2 pt-8 pb-10 bg-opacity-60">
-                    {Logo()}
+                    {Logo(strictDarkMode || hideLogo)}
                     {ToggleDarkModeButton(
                         strictDarkMode,
                         mounted,
                         resolvedTheme,
                         setTheme,
+                        hideThemeButton,
                     )}
                 </nav>
             </div>
@@ -92,8 +99,10 @@ export function Container({
     );
 }
 
-export function Logo() {
-    return (
+export function Logo(hideLogo: boolean) {
+    return hideLogo ? (
+        <span></span>
+    ) : (
         <Link href={'/'}>
             <a className=" inline-block -ml-2 font-bold font-logo text-3xl select-none hover:scale-125 -rotate-6 duration-700">
                 <span className="select-none hidden sm:block">
@@ -119,9 +128,11 @@ function ToggleDarkModeButton(
     mounted: boolean,
     resolvedTheme: string,
     setTheme: (theme: string) => void,
+    hideButton: boolean,
 ) {
     return (
-        !strictDarkMode && (
+        !strictDarkMode &&
+        !hideButton && (
             <button
                 aria-label="Toggle Dark Mode"
                 type="button"

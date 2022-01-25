@@ -1,19 +1,18 @@
 import { Container, Logo } from 'components/Container';
-import { BigButton } from 'components/Others';
-import Link from 'next/link';
+import { BigButton, ExternalLink } from 'components/Others';
 
 export default function Index() {
     return (
         <Container>
-            <div className="pt-8 mb-24 flex flex-col justify-center items-center mx-auto max-w-3xl">
+            <div className="xs:pt-6 mb-24 flex flex-col justify-center items-center mx-auto max-w-3xl">
                 <h1
                     title="Shivam's Micro Space"
-                    className="select-none flex flex-col mx-auto justify-center items-center font-logo text-4xl xs:text-5xl mb-12"
+                    className="select-none flex flex-col mx-auto justify-center items-center font-logo text-4xl xs:text-5xl mb-14"
                 >
                     <span className="capsized">Welcome to 9works </span>
-                    <Link href="/shivam">
+                    <ExternalLink href="https://shivamrathore.com">
                         <a className="capsized text-pink-700">Shivam's </a>
-                    </Link>
+                    </ExternalLink>
                     <span className="capsized -translate-x-2">Micro Space</span>
                 </h1>
                 <p className="mb-16">
