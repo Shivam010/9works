@@ -114,7 +114,7 @@ export default function Footer() {
                     >
                         {themeMode}
                     </button>
-                    <FooterLinks isInternal href="/shivam">
+                    <FooterLinks href="https://shivamrathore.com">
                         <span className="flex flex-col font-logo text-sm xs:text-base sm:text-xl dark:text-rang-300 text-rang-500 hover:text-rang-600">
                             <span className="text-xs xs:text-sm pb-3 pr-1">
                                 made with love by
