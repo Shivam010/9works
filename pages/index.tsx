@@ -3,15 +3,18 @@ import { BigButton, ExternalLink } from 'components/Others';
 
 export default function Index() {
     return (
-        <Container>
-            <div className="xs:pt-6 mb-24 flex flex-col justify-center items-center mx-auto max-w-3xl">
+        <Container hideLogo hideThemeButton>
+            <div className="py-2 xs:pt-6 mb-24 flex flex-col justify-center items-center mx-auto max-w-3xl">
                 <h1
                     title="Shivam's Micro Space"
                     className="select-none flex flex-col mx-auto justify-center items-center font-logo text-4xl xs:text-5xl mb-14"
                 >
                     <span className="capsized">Welcome to 9works </span>
-                    <ExternalLink href="https://shivamrathore.com">
-                        <a className="capsized text-pink-700">Shivam's </a>
+                    <ExternalLink
+                        href="https://shivamrathore.com"
+                        className="capsized text-pink-700"
+                    >
+                        Shivam's
                     </ExternalLink>
                     <span className="capsized -translate-x-2">Micro Space</span>
                 </h1>

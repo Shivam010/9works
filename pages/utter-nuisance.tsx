@@ -60,11 +60,3 @@ export default function UtterNuisance() {
         </Layout>
     );
 }
-
-export function getStaticProps() {
-    return {
-        props: {
-            strictDarkMode: false,
-        },
-    };
-}

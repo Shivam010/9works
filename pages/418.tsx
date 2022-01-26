@@ -70,11 +70,3 @@ export default function NotFound() {
         </Layout>
     );
 }
-
-export function getStaticProps() {
-    return {
-        props: {
-            strictDarkMode: false,
-        },
-    };
-}

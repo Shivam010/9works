@@ -46,27 +46,34 @@ export default function Concurrency() {
                     Using <span className="text-pink-700">P</span>
                     arallelism :
                 </h2>
-                <div className="mb-16">
+                <div
+                    className="mb-16"
+                    title="Multiple Groups of Gophers doing all of their separate works"
+                >
                     <Image
+                        alt="First Group"
                         height="102"
                         width="759"
                         placeholder="blur"
                         src={problemImage}
                     />
                     <Image
+                        alt="Second Group"
                         height="102"
                         width="759"
                         placeholder="blur"
                         src={problemImage}
                     />
                     <Image
+                        alt="Thrid Group"
                         height="102"
                         width="759"
                         placeholder="blur"
                         src={problemImage}
                     />
                     <ImageWithDescription
-                        description="Multiple Gophers doing all of their separate works"
+                        alt="Fourth Group"
+                        description="Multiple Groups of Gophers doing all of their separate works"
                         height="102"
                         width="759"
                         placeholder="blur"
@@ -101,14 +108,6 @@ export default function Concurrency() {
             </BigButton>
         </Layout>
     );
-}
-
-export function getStaticProps() {
-    return {
-        props: {
-            strictDarkMode: false,
-        },
-    };
 }
 
 function golangTalk() {

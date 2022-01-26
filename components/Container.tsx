@@ -81,7 +81,7 @@ export function Container({
             </Head>
             <div className="flex flex-col justify-center px-8">
                 <nav className="flex items-center justify-between w-full relative max-w-[64rem] mx-auto md:px-2 pt-8 pb-10 bg-opacity-60">
-                    {Logo(strictDarkMode || hideLogo)}
+                    {Logo(hideLogo)}
                     {ToggleDarkModeButton(
                         strictDarkMode,
                         mounted,
