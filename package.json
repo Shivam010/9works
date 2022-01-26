@@ -11,8 +11,10 @@
   "scripts": {
     "copy": "cp ./pages/404.tsx ./pages/418.tsx && cp ./LICENSE ./public/license",
     "generate": "yarn copy && node ./scripts/generate-sitemap.mjs",
-    "dev": "yarn generate && next dev",
-    "build": "yarn generate && next build",
+    "predev": "yarn generate",
+    "dev": "next dev",
+    "prebuild": "yarn generate",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
