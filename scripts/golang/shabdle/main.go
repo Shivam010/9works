@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/fs"
+	"math"
 	"math/rand"
 	"os"
 )
@@ -14,6 +15,8 @@ const (
 	commonWords       = base + "/1000-most-common-hindi-words.txt"
 	wordsWithoutMatra = base + "/150-words-without-matra.txt"
 	threeLetterWords  = base + "/three-letter-hindi-words.json"
+	// halanth character
+	halanth = '्'
 )
 
 var (
@@ -37,23 +40,61 @@ var (
 		"क्ष": {}, "त्र": {}, "ज्ञ": {}, "श्र": {},
 		"ड़": {}, "ढ़": {},
 	}
+	matras = map[string]struct{}{
+		"ऺ": {}, "ऻ": {}, "़": {}, "ा": {},
+		"ि": {}, "ी": {}, "ु": {}, "ू": {},
+		"ृ": {}, "ॄ": {}, "ॅ": {}, "ॆ": {},
+		"े": {}, "ै": {}, "ॉ": {}, "ॊ": {},
+		"ो": {}, "ौ": {}, "ॎ": {},
+		"ॏ": {}, "॑": {}, "॒": {}, "॓": {},
+		"॔": {}, "ॕ": {}, "ॖ": {}, "ॗ": {},
+		string(halanth): {},
+	}
 )
 
 func main() {
-	// utf8.
-	_ = hindiCharacters
+	ExtractThreeLetterCommonWords()
 	// ReadShuffleAndDump()
 	fmt.Println("Done")
 }
 
 func ExtractThreeLetterCommonWords() {
 	// Read
-	words, err := ReadWordsFromTxt(commonWords)
+	allWords, err := ReadWordsFromTxt(commonWords)
 	if err != nil {
 		endScript("Error reading file", commonWords, err)
 	}
-	_ = words
-
+	// Filter
+	filtered := allWords[:0]
+	for _, word := range allWords {
+		hasMatra, noOfCharacters := false, 0
+		for _, ch := range word {
+			if _, ok := hindiCharacters[string(ch)]; ok {
+				noOfCharacters++
+			}
+			if ch == halanth {
+				// ignore this word - as it has a partial character
+				noOfCharacters = math.MaxInt
+				break
+			}
+			if _, ok := matras[string(ch)]; ok {
+				hasMatra = true
+			}
+		}
+		if noOfCharacters == 3 {
+			filtered = append(filtered, word)
+		}
+		_ = hasMatra
+		// fmt.Println(word, " -> ", noOfCharacters, hasMatra)
+	}
+	// Dump
+	data, err := json.Marshal(filtered)
+	if err != nil {
+		endScript("Error marshaling data", err)
+	}
+	if err = os.WriteFile(threeLetterWords, data, fs.ModePerm); err != nil {
+		endScript("Error writing data to", threeLetterWords, err)
+	}
 }
 
 func ReadShuffleAndDump() {
