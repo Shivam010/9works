@@ -70,6 +70,16 @@ export default function Document() {
                 <meta name="theme-color" content="#0a0a0c" />
             </Head>
             <body className="bg-rang-0 dark:bg-rang-900 text-rang-900 dark:text-rang-0">
+                {/* Google Tag Manager (noscript) */}
+                <noscript>
+                    <iframe
+                        src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID}`}
+                        height="0"
+                        width="0"
+                        className="hidden invisible"
+                    ></iframe>
+                </noscript>
+                {/* End Google Tag Manager (noscript) */}
                 <Main />
                 <NextScript />
             </body>

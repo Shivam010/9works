@@ -107,7 +107,7 @@ function securityHeaders() {
                         "frame-ancestors 'self' shivamrathore.com shivam010.in *.shivamrathore.com *.shivam010.in; ",
                         'img-src * blob: data:; ',
                         "style-src 'self' 'unsafe-inline'; ",
-                        "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://gc.zgo.at; ",
+                        "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://gc.zgo.at https://www.googletagmanager.com/gtm.js; ",
                     ].join(' '),
                 },
             ],
