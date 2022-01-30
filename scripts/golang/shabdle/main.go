@@ -12,16 +12,18 @@ import (
 
 const (
 	base              = "./scripts/golang/shabdle"
+	dictinoary        = base + "/hindi-dictionary.txt" // https://gist.github.com/Shivam010/f714d58de515e64a6ac40af6ab5b1862
 	commonWords       = base + "/1000-most-common-hindi-words.txt"
 	wordsWithoutMatra = base + "/150-words-without-matra.txt"
-	threeLetterWords  = base + "/three-letter-hindi-words.json"
+	// output files :down:
+	threeLetterWords       = base + "/three-letter-common-words.json"
+	threeLetterWordsLookUp = base + "/three-letter-hindi-lookup.json"
 	// halanth character
 	halanth = '्'
 )
 
 var (
-	characters      = [124]string{"", "अ", "आ", "इ", "ई", "उ", "ऊ", "ऋ", "ऌ", "ऍ", "ऎ", "ए", "ऐ", "ऑ", "ऒ", "ओ", "औ", "क", "ख", "ग", "घ", "ङ", "च", "छ", "ज", "झ", "ञ", "ट", "ठ", "ड", "ढ", "ण", "त", "थ", "द", "ध", "न", "ऩ", "प", "फ", "ब", "भ", "म", "य", "र", "ऱ", "ल", "ळ", "ऴ", "व", "श", "ष", "स", "ह", "ऺ", "ऻ", "़", "ऽ", "ा", "ि", "ी", "ु", "ू", "ृ", "ॄ", "ॅ", "ॆ", "े", "ै", "ॉ", "ॊ", "ो", "ौ", "्", "ॎ", "ॏ", "ॐ", "॑", "॒", "॓", "॔", "ॕ", "ॖ", "ॗ", "क़", "ख़", "ग़", "ज़", "ड़", "ढ़", "फ़", "य़", "ॠ", "ॡ", "ॢ", "ॣ", "।", "॥", "०", "१", "२", "३", "४", "५", "६", "७", "८", "९", "॰", "ॱ", "ॲ", "ॳ", "ॴ", "ॵ", "ॶ", "ॷ", "ॸ", "ॹ", "ॺ", "ॻ", "ॼ", "ॽ", "ॾ", "ॿ"}
-	hindiCharacters = map[string]struct{}{
+	hindiAlphabets = map[string]struct{}{
 		// 11 स्वरों vowels
 		"अ": {}, "आ": {}, "इ": {}, "ई": {},
 		"उ": {}, "ऊ": {}, "ए": {}, "ऐ": {},
@@ -40,79 +42,122 @@ var (
 		"क्ष": {}, "त्र": {}, "ज्ञ": {}, "श्र": {},
 		"ड़": {}, "ढ़": {},
 	}
+	similarAlphabets = map[rune]rune{
+		'ऩ': 'न',
+		'ऱ': 'र',
+		'ॡ': 'ल', 'ळ': 'ल', 'ऴ': 'ल',
+		'क़': 'क',
+		'ख़': 'ख',
+		'ग़': 'ग',
+		'ज़': 'ज',
+		'ड़': 'ङ',
+		'ढ़': 'ढ',
+		'फ़': 'फ',
+		'य़': 'य',
+		'ॠ': 'ऋ',
+	}
 	matras = map[string]struct{}{
-		"ऺ": {}, "ऻ": {}, "़": {}, "ा": {},
+		"़": {}, "ा": {},
 		"ि": {}, "ी": {}, "ु": {}, "ू": {},
-		"ृ": {}, "ॄ": {}, "ॅ": {}, "ॆ": {},
-		"े": {}, "ै": {}, "ॉ": {}, "ॊ": {},
-		"ो": {}, "ौ": {}, "ॎ": {},
-		"ॏ": {}, "॑": {}, "॒": {}, "॓": {},
-		"॔": {}, "ॕ": {}, "ॖ": {}, "ॗ": {},
+		"े": {}, "ै": {}, "ॉ": {},
+		"ो": {}, "ौ": {},
+		"ं": {}, "ँ": {}, // "ः": {},
 		string(halanth): {},
 	}
 )
 
 func main() {
+	// rand.Seed(time.Now().Unix())
+	ExtractThreeLetterWordFromDictionary()
 	ExtractThreeLetterCommonWords()
-	// ReadShuffleAndDump()
 	fmt.Println("Done")
 }
 
+func ExtractThreeLetterWordFromDictionary() {
+	// Read from dictionary
+	list1, err := ReadWordsFromTxt(dictinoary)
+	if err != nil {
+		endScript("Error reading file", dictinoary, err)
+	}
+	// Read common words
+	list2, err := ReadWordsFromTxt(commonWords)
+	if err != nil {
+		endScript("Error reading file", commonWords, err)
+	}
+	// Read common words without matra
+	list3, err := ReadWordsFromTxt(wordsWithoutMatra)
+	if err != nil {
+		endScript("Error reading file", wordsWithoutMatra, err)
+	}
+	// Filter
+	allWords := append(list1, list2...)
+	allWords = append(allWords, list3...)
+	filtered := FilterThreeLetterWords(allWords)
+	// Dump
+	Dump(threeLetterWordsLookUp, filtered)
+	fmt.Println("No. of Words in", threeLetterWordsLookUp, "is", len(filtered))
+}
+
 func ExtractThreeLetterCommonWords() {
-	// Read
+	// Read common words
 	allWords, err := ReadWordsFromTxt(commonWords)
 	if err != nil {
 		endScript("Error reading file", commonWords, err)
 	}
+	// Read common words without matra
+	withoutMatra, err := ReadWordsFromTxt(wordsWithoutMatra)
+	if err != nil {
+		endScript("Error reading file", wordsWithoutMatra, err)
+	}
+	allWords = append(allWords, withoutMatra...)
 	// Filter
-	filtered := allWords[:0]
-	for _, word := range allWords {
+	filtered := FilterThreeLetterWords(allWords, true)
+	// Dump
+	Dump(threeLetterWords, filtered)
+	fmt.Println("No. of Words in", threeLetterWords, "is", len(filtered))
+}
+
+func FilterThreeLetterWords(in []string, shuffle ...interface{}) []string {
+	filtered, mp := in[:0], map[string]struct{}{}
+	for _, word := range in {
 		hasMatra, noOfCharacters := false, 0
+		updWord := ""
 		for _, ch := range word {
-			if _, ok := hindiCharacters[string(ch)]; ok {
+			if sal, ok := similarAlphabets[ch]; ok {
+				ch = sal
+			}
+			updWord += string(ch)
+			if _, ok := hindiAlphabets[string(ch)]; ok {
 				noOfCharacters++
+			} else {
+				if _, ok = matras[string(ch)]; ok {
+					hasMatra = true
+				} else {
+					// ignore this word - as it has some unknown characters
+					noOfCharacters = math.MinInt
+					break
+				}
 			}
 			if ch == halanth {
 				// ignore this word - as it has a partial character
 				noOfCharacters = math.MaxInt
 				break
 			}
-			if _, ok := matras[string(ch)]; ok {
-				hasMatra = true
-			}
 		}
 		if noOfCharacters == 3 {
-			filtered = append(filtered, word)
+			if _, ok := mp[updWord]; !ok {
+				mp[updWord] = struct{}{}
+				filtered = append(filtered, updWord)
+			}
 		}
 		_ = hasMatra
 		// fmt.Println(word, " -> ", noOfCharacters, hasMatra)
 	}
-	// Dump
-	data, err := json.Marshal(filtered)
-	if err != nil {
-		endScript("Error marshaling data", err)
+	if len(shuffle) != 0 {
+		// Shuffle
+		rand.Shuffle(len(filtered), func(i, j int) { filtered[i], filtered[j] = filtered[j], filtered[i] })
 	}
-	if err = os.WriteFile(threeLetterWords, data, fs.ModePerm); err != nil {
-		endScript("Error writing data to", threeLetterWords, err)
-	}
-}
-
-func ReadShuffleAndDump() {
-	// Read
-	words, err := ReadWordsFromTxt(wordsWithoutMatra)
-	if err != nil {
-		endScript("Error reading file", wordsWithoutMatra, err)
-	}
-	// Shuffle
-	rand.Shuffle(len(words), func(i, j int) { words[i], words[j] = words[j], words[i] })
-	// Dump
-	data, err := json.Marshal(words)
-	if err != nil {
-		endScript("Error marshaling data", err)
-	}
-	if err = os.WriteFile(threeLetterWords, data, fs.ModePerm); err != nil {
-		endScript("Error writing data to", threeLetterWords, err)
-	}
+	return filtered
 }
 
 func ReadWordsFromTxt(path string) ([]string, error) {
@@ -128,6 +173,16 @@ func ReadWordsFromTxt(path string) ([]string, error) {
 		list = append(list, scanner.Text())
 	}
 	return list, err
+}
+
+func Dump(name string, words []string) {
+	data, err := json.Marshal(words)
+	if err != nil {
+		endScript("Error marshaling data", err)
+	}
+	if err = os.WriteFile(name, data, fs.ModePerm); err != nil {
+		endScript("Error writing data to", name, err)
+	}
 }
 
 func endScript(in ...interface{}) {

@@ -39,3 +39,6 @@ yarn-error.log*
 
 # Generated File(s)
 sitemap.xml
+
+# Dictionary File
+hindi-dictionary.txt
