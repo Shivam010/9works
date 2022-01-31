@@ -22,14 +22,14 @@ export default function Space() {
                         Man
                     </ExternalLink>
                 </h1>
-                {animated()}
-                {animated()}
+                {useAnimated()}
+                {useAnimated()}
                 <div className="flex flex-row">
                     <div className="min-w-[50%] sm:float-left">
-                        {animated()}
+                        {useAnimated()}
                     </div>
                     <div className="min-w-[50%] sm:float-left">
-                        {animated()}
+                        {useAnimated()}
                     </div>
                 </div>
             </div>
@@ -155,7 +155,7 @@ const animationEffect = () => {
     );
 };
 
-const animated = () => {
+const useAnimated = () => {
     useEffect(animationEffect, []);
     return (
         <svg
