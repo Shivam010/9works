@@ -117,6 +117,10 @@ export function getStaticProps() {
             isExternal: true,
         },
         {
+            title: 'Space Man',
+            endpoint: '/projects/space',
+        },
+        {
             title: "418 - i'm a teapot",
             endpoint: '/418',
         },
