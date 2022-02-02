@@ -1,4 +1,4 @@
-const { fontFamily } = require('tailwindcss/defaultTheme');
+const { fontFamily, screens } = require('tailwindcss/defaultTheme');
 
 module.exports = {
     content: [
@@ -7,10 +7,12 @@ module.exports = {
     ],
     darkMode: 'class',
     theme: {
+        screens: {
+            vxs: '425px',
+            xs: '512px',
+            ...screens,
+        },
         extend: {
-            screens: {
-                xs: '512px',
-            },
             colors: {
                 rang: {
                     0: '#ffffff',
