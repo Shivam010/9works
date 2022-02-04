@@ -1,5 +1,6 @@
-import { Container, Logo } from 'components/Container';
-import { BigButton, ExternalLink } from 'components/Others';
+import Container from 'components/Container';
+import BigButton from 'components/BigButton';
+import ExternalLink from 'components/ExternalLink';
 
 export default function Index() {
     return (

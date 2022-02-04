@@ -1,5 +1,5 @@
-import { Container } from 'components/Container';
-import { ExternalLink } from 'components/Others';
+import Container from 'components/Container';
+import ExternalLink from 'components/ExternalLink';
 import { gsap } from 'gsap';
 import { useEffect } from 'react';
 

@@ -1,5 +1,6 @@
-import { BigButton, ExternalLink } from 'components/Others';
 import Layout from 'components/Layout';
+import BigButton from 'components/BigButton';
+import ExternalLink from 'components/ExternalLink';
 import Link from 'next/link';
 
 export default function UtterNuisance() {
