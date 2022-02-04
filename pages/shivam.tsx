@@ -14,6 +14,8 @@ export default function About() {
                 description:
                     'Software Developer • Cube Solver • Free Time Doodler • Paper Plane Pilot',
                 image: 'https://9works.tk/shivam/banner.png',
+                canonicalUrlDomain: 'https://shivamrathore.com',
+                canonicalUrlPath: '/',
             }}
         >
             <div className="sm:pt-12 mx-auto mb-16 max-w-3xl flex flex-col justify-center items-center">

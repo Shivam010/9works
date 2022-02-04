@@ -12,6 +12,8 @@ export type Metadata = {
     image?: string;
     ogType?: 'website' | 'article';
     publishedOn?: Date;
+    canonicalUrlPath?: string;
+    canonicalUrlDomain?: string;
 };
 
 export function Container({
@@ -41,8 +43,14 @@ export function Container({
         description: `A Micro Space for tinkering and experimenting with ideas and new technologies. A part of the multiverse of Shivam Rathore's imagination.`,
         image: 'https://9works.tk/banner.png',
         ogType: 'website',
+        canonicalUrlPath: router.asPath,
+        canonicalUrlDomain: 'https://9works.tk',
         ...metadata,
     };
+    if (meta.canonicalUrlDomain.endsWith('/'))
+        meta.canonicalUrlDomain = meta.canonicalUrlDomain.slice(0, -1);
+    if (!meta.canonicalUrlPath.startsWith('/'))
+        meta.canonicalUrlPath = '/' + meta.canonicalUrlPath;
 
     return (
         <>
@@ -56,11 +64,11 @@ export function Container({
                 <meta name="color-scheme" content="dark light" />
                 <meta
                     property="og:url"
-                    content={`https://9works.tk${router.asPath}`}
+                    content={meta.canonicalUrlDomain + meta.canonicalUrlPath}
                 />
                 <link
                     rel="canonical"
-                    href={`https://9works.tk${router.asPath}`}
+                    href={meta.canonicalUrlDomain + meta.canonicalUrlPath}
                 />
                 <meta property="og:type" content={meta.ogType} />
                 <meta property="og:site_name" content="9works" />
