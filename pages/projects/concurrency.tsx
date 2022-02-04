@@ -1,9 +1,7 @@
 import Layout from 'components/Layout';
-import {
-    BigButton,
-    ExternalLink,
-    ImageWithDescription,
-} from 'components/Others';
+import BigButton from 'components/BigButton';
+import ExternalLink from 'components/ExternalLink';
+import ImageWithDescription from 'components/ImageWithDescription';
 import Image from 'next/image';
 import problemImage from 'public/images/concurrency/problem.png';
 import solutionImage from 'public/images/concurrency/solution_with_concurrency.png';

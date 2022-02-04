@@ -1,5 +1,5 @@
 import { PropsWithChildren, ReactNode } from 'react';
-import { Container, Metadata } from './Container';
+import Container, { Metadata } from './Container';
 
 export default function Layout({
     heading,
@@ -11,7 +11,7 @@ export default function Layout({
 }>) {
     return (
         <Container metadata={metadata}>
-            <div className="pt-6 pb-8 mx-auto mb-16 max-w-3xl flex flex-col justify-center items-center">
+            <div className="pt-6 pb-8 mx-auto mb-16 max-w-3xl flex flex-col justify-center items-center grow">
                 {Heading(heading)}
                 {children}
             </div>

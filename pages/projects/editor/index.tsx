@@ -1,5 +1,5 @@
-import { Container } from "components/Container";
+import Layout from 'components/Layout';
 
 export default function MainEditor() {
-    return <Container></Container>
+    return <Layout></Layout>;
 }

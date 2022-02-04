@@ -1,10 +1,8 @@
-import {
-    BigButton,
-    ExternalLink,
-    ImageWithDescription,
-} from 'components/Others';
+import BigButton from 'components/BigButton';
+import ExternalLink from 'components/ExternalLink';
+import ImageWithDescription from 'components/ImageWithDescription';
 import me from 'public/shivam.png';
-import { Container } from 'components/Container';
+import Container from 'components/Container';
 
 export default function About() {
     return (

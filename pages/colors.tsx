@@ -1,4 +1,4 @@
-import { Container } from 'components/Container';
+import Container from 'components/Container';
 import { useTheme } from 'next-themes';
 
 export default function Colors({ slate }) {
@@ -20,7 +20,18 @@ export default function Colors({ slate }) {
                     toggle
                 </button>
             </div>
-            <div className="bg-[#ffffff] bg-[#fafafa] bg-[#eaeaea] bg-[#999999] bg-[#888888] bg-[#666666] bg-[#444444] bg-[#333333] bg-[#222222] bg-[#111111]"></div>
+            <div>
+                <div className="bg-[#ffffff]"></div>
+                <div className="bg-[#fafafa]"></div>
+                <div className="bg-[#eaeaea]"></div>
+                <div className="bg-[#999999]"></div>
+                <div className="bg-[#888888]"></div>
+                <div className="bg-[#666666]"></div>
+                <div className="bg-[#444444]"></div>
+                <div className="bg-[#333333]"></div>
+                <div className="bg-[#222222]"></div>
+                <div className="bg-[#111111]"></div>
+            </div>
             <div className="flex flex-col items-start justify-center max-w-3xl mx-auto mt-8 mb-16">
                 <div className="min-w-0 flex-1 grid grid-cols-5 2xl:grid-cols-10 gap-x-4 gap-y-3 2xl:gap-x-2">
                     {slate.map((sc) => {

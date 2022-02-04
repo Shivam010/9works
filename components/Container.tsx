@@ -16,7 +16,7 @@ export type Metadata = {
     canonicalUrlDomain?: string;
 };
 
-export function Container({
+export default function Container({
     metadata,
     children,
     hideLogo,
@@ -99,7 +99,7 @@ export function Container({
                     )}
                 </nav>
             </div>
-            <main id="skip" className="flex flex-col justify-center px-8 ">
+            <main id="skip" className="flex flex-col justify-center px-8 grow ">
                 {children}
                 <Footer />
             </main>
@@ -107,7 +107,7 @@ export function Container({
     );
 }
 
-export function Logo(hideLogo: boolean) {
+function Logo(hideLogo: boolean) {
     return hideLogo ? (
         <span></span>
     ) : (
@@ -117,7 +117,7 @@ export function Logo(hideLogo: boolean) {
                     9works.
                     <span className="text-pink-700">tk </span>
                 </span>
-                <span className="select-none block sm:hidden -mt-3">
+                <span className="select-none block sm:hidden mt-3">
                     {/* <Image
                         alt="9w"
                         src={'/logo.png'}
