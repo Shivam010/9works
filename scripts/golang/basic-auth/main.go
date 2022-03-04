@@ -14,7 +14,7 @@ func main() {
 			w.WriteHeader(http.StatusUnauthorized)
 			return
 		}
-		creds, err := base64.StdEncoding.DecodeString(strings.TrimLeft(head, "Basic "))
+		creds, err := base64.StdEncoding.DecodeString(strings.TrimPrefix(head, "Basic "))
 		if err != nil {
 			w.Header().Set("WWW-Authenticate", "Basic realm=\"Secure Area\"")
 			w.WriteHeader(http.StatusUnauthorized)

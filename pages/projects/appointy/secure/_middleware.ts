@@ -11,6 +11,14 @@ export async function middleware(req: NextRequest) {
     if (req.nextUrl.pathname.endsWith('/appointy')) {
         return NextResponse.next();
     }
+    // Appointy Home
+    if (req.nextUrl.pathname.endsWith('/appointy/secure')) {
+        const u = req.nextUrl.clone();
+        u.pathname = u.pathname.slice(0, -'/secure'.length);
+        u.searchParams.set('tag', 'secure');
+        console.log(u);
+        return NextResponse.redirect(u, 308);
+    }
 
     if (basicAuth) {
         const auth = basicAuth.split(' ')[1];

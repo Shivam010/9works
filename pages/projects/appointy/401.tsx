@@ -8,7 +8,14 @@ export default function NotFound() {
         </>
     );
     return (
-        <Layout heading={heading} metadata={{ title: '401 - unauthorized' }}>
+        <Layout
+            heading={heading}
+            metadata={{
+                title: '401 - unauthorized',
+                description:
+                    "It seems you're not authorized to access something",
+            }}
+        >
             <blockquote>
                 <div className="mb-2">
                     It seems you're not authorized to access something or you
