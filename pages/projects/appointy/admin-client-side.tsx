@@ -2,7 +2,12 @@ import Layout from 'components/Layout';
 
 export default function Slots() {
     return (
-        <Layout metadata={{ title: 'admin vs client Side' }}>
+        <Layout
+            metadata={{
+                title: 'admin vs client Side',
+                description: 'Comparison between Admin and Client side',
+            }}
+        >
             <h1 className="font-logo text-5xl leading-relaxed mx-auto mb-12">
                 admin <span className="text-pink-700">vs</span>{' '}
                 <span className="inline-block xs:inline">client side</span>

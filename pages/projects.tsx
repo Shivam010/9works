@@ -99,6 +99,10 @@ export function getStaticProps() {
             endpoint: '/utter-nuisance',
         },
         {
+            title: 'For appointy',
+            endpoint: '/projects/appointy',
+        },
+        {
             title: 'Graphql Playground',
             endpoint: 'https://gql.rathore.ml/',
             isExternal: true,
@@ -120,6 +124,10 @@ export function getStaticProps() {
         {
             title: 'Space Man',
             endpoint: '/projects/space',
+        },
+        {
+            title: 'Basic auth Secured',
+            endpoint: '/projects/basic-secure',
         },
         {
             title: "418 - i'm a teapot",

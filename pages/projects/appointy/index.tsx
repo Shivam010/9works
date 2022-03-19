@@ -3,23 +3,11 @@ import BigButton from 'components/BigButton';
 import ExternalLink from 'components/ExternalLink';
 import Link from 'next/link';
 
-export default function Appointy({ projects }: { projects: Project[] }) {
-    // const headingFull = (
-    //     <>
-    //         <div
-    //             className={
-    //                 ' mx-auto max-w-3xl flex flex-col justify-center items-center ' +
-    //                 ' select-none font-logo text-3xl xs:text-5xl grow '
-    //             }
-    //         >
-    //             <span className="capsized mb-4">Welcome to appointy </span>
-    //             <Link href="/">
-    //                 <a className="capsized text-pink-700"> at 9works </a>
-    //             </Link>
-    //             <span className="capsized">The Micro Space</span>
-    //         </div>
-    //     </>
-    // );
+export default function Appointy({
+    projects,
+}: {
+    projects: AppointyProject[];
+}) {
     const heading = (
         <>
             <span className="text-pink-700">appointy</span> at 9works
@@ -50,7 +38,7 @@ export default function Appointy({ projects }: { projects: Project[] }) {
             </h2>
             <div className="my-10 grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center items-center w-full">
                 {projects.map((p) => (
-                    <ProjectItem key={p.title} {...p} />
+                    <AppointyProjectItem key={p.title} {...p} />
                 ))}
             </div>
             <p className="-mb-16 w-full ml-6">
@@ -66,7 +54,11 @@ export default function Appointy({ projects }: { projects: Project[] }) {
     );
 }
 
-const ProjectItem = ({ title, endpoint, isExternal }: Project) => {
+const AppointyProjectItem = ({
+    title,
+    endpoint,
+    isExternal,
+}: AppointyProject) => {
     return (
         <BigButton
             href={endpoint}
@@ -79,7 +71,7 @@ const ProjectItem = ({ title, endpoint, isExternal }: Project) => {
     );
 };
 
-export type Project = {
+export type AppointyProject = {
     title: string;
     endpoint: string;
     isExternal?: boolean;
@@ -87,10 +79,14 @@ export type Project = {
 
 export function getStaticProps() {
     const base = '/projects/appointy';
-    let projects: Project[] = [
+    let projects: AppointyProject[] = [
         {
             title: 'admin vs client side',
             endpoint: '/admin-client-side',
+        },
+        {
+            title: 'Impersonation',
+            endpoint: '/impersonate',
         },
     ];
     projects.push({

@@ -1,24 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const Username = process.env.APPOINTY_BASIC_USER;
-const Password = process.env.APPOINTY_BASIC_PASS;
+const Username = process.env.DEMO_BASIC_USER;
+const Password = process.env.DEMO_BASIC_PASS;
 
 export async function middleware(req: NextRequest) {
     const basicAuth = req.headers.get('authorization');
     const is401 = req.nextUrl.pathname.endsWith('/401');
-
-    // Appointy Home
-    if (req.nextUrl.pathname.endsWith('/appointy')) {
-        return NextResponse.next();
-    }
-    // Appointy Home
-    if (req.nextUrl.pathname.endsWith('/appointy/secure')) {
-        const u = req.nextUrl.clone();
-        u.pathname = u.pathname.slice(0, -'/secure'.length);
-        u.searchParams.set('tag', 'secure');
-        console.log(u);
-        return NextResponse.redirect(u, 308);
-    }
 
     if (basicAuth) {
         const auth = basicAuth.split(' ')[1];
@@ -39,7 +26,7 @@ export async function middleware(req: NextRequest) {
 
     // Unauthorized refresh to 401 page
     return new Response(
-        `<html><head><title>401 Unauthorized</title><meta http-equiv="refresh" content="0; URL=/projects/appointy/401"></head></html>`,
+        `<html><head><title>401 Unauthorized</title><meta http-equiv="refresh" content="0; URL=/projects/basic-secure/401"></head></html>`,
         {
             status: 401,
             headers: {
