@@ -90,8 +90,8 @@ export function getStaticProps() {
         },
     ];
     projects.push({
-        title: 'and many more to come...',
-        endpoint: '#',
+        title: 'other projects...',
+        endpoint: '/..',
     });
     projects = projects.map((p) => {
         p.endpoint = base + p.endpoint;

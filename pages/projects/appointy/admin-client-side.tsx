@@ -1,3 +1,4 @@
+import BigButton from 'components/BigButton';
 import Layout from 'components/Layout';
 
 export default function Slots() {
@@ -12,8 +13,8 @@ export default function Slots() {
                 admin <span className="text-pink-700">vs</span>{' '}
                 <span className="inline-block xs:inline">client side</span>
             </h1>
-            <blockquote>
-                <div className="mb-2">
+            <blockquote className="mb-12 mt-2" title="wiki/comparison">
+                <h3 className="">
                     Admin vs Client Side is for comparing Appointy's
                     Availability Responses for same input from admin and client
                     side{' '}
@@ -21,8 +22,9 @@ export default function Slots() {
                         simultaneously
                     </span>
                     .
-                </div>
+                </h3>
             </blockquote>
+            <BigButton href="/projects/appointy">T.B.D.</BigButton>
         </Layout>
     );
 }

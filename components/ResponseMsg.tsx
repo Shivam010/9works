@@ -1,4 +1,6 @@
-export type ResponseMsgProps = { message: string; isError?: boolean };
+import { ReactNode } from 'react';
+
+export type ResponseMsgProps = { message: ReactNode; isError?: boolean };
 
 export default function ResponseMsg({ message, isError }: ResponseMsgProps) {
     return (

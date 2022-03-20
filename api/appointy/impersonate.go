@@ -19,30 +19,39 @@ import (
 )
 
 const (
-	BasicPass           = "APPOINTY_BASIC_PASS"
-	AllowedEnvFile      = "./api/appointy/allowed-env.json"
-	ImpersonationEnvKey = "APPOINTY_IMPERSONATION_SECRETS"
+	AllowedEnvFile   = "./api/appointy/allowed-env.json"
+	ImpersonationKey = "APPOINTY_IMPERSONATION_SECRETS"
 )
 
 type ImpersonationSecrets struct {
-	GrpcKey   string `json:"grpc_key"`
-	GrpcValue string `json:"grpc_value"`
+	AuthToken   string `json:"auth_token"`
+	SecretKey   string `json:"secret_key"`
+	SecretValue string `json:"secret_value"`
+}
+
+type AllowedEnvsType map[string]struct {
+	Url  string `json:"url"`
+	Name string `json:"name"`
+	Grpc string `json:"grpc"`
+}
+
+var (
+	secrets     = &ImpersonationSecrets{}
+	allowedEnvs = AllowedEnvsType{}
+)
+
+func init() {
+	fileData, _ := os.ReadFile(path.Join(os.Getenv("PWD"), AllowedEnvFile))
+	_ = json.Unmarshal(fileData, &allowedEnvs)
+	_ = json.Unmarshal([]byte(os.Getenv(ImpersonationKey)), &secrets)
 }
 
 func Impersonate(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("content-type", "application/json; charset=utf-8")
 
-	allowedEnvs := AllowedEnvsType{}
-	fileData, _ := os.ReadFile(path.Join(os.Getenv("PWD"), AllowedEnvFile))
-	_ = json.Unmarshal(fileData, &allowedEnvs)
-	fmt.Println(allowedEnvs)
-
-	cnf := &ImpersonationSecrets{}
-	_ = json.Unmarshal([]byte(os.Getenv(ImpersonationEnvKey)), cnf)
-
-	if r.Header.Get("authorization") != "Bearer "+os.Getenv(BasicPass) {
+	if r.Header.Get("authorization") != "Bearer "+secrets.AuthToken {
 		w.WriteHeader(http.StatusUnauthorized)
-		w.Write([]byte(`{"error":"unauthorized"}`))
+		w.Write([]byte(`{"error":"Unauthorized"}`))
 		return
 	}
 
@@ -53,6 +62,7 @@ func Impersonate(w http.ResponseWriter, r *http.Request) {
 	}
 	if r.Method != http.MethodPost {
 		w.WriteHeader(http.StatusMethodNotAllowed)
+		w.Write([]byte(`{"error":"Method not allowed"}`))
 		return
 	}
 
@@ -62,17 +72,17 @@ func Impersonate(w http.ResponseWriter, r *http.Request) {
 
 	if email == "" {
 		w.WriteHeader(http.StatusPreconditionRequired)
-		w.Write([]byte(`{"error":"email is required"}`))
+		w.Write([]byte(`{"error":"Email is required"}`))
 		return
 	}
 	if env == "" || envInfo.Name == "" {
 		w.WriteHeader(http.StatusPreconditionFailed)
-		w.Write([]byte(`{"error":"invalid env provided"}`))
+		w.Write([]byte(`{"error":"Invalid env provided"}`))
 		return
 	}
 	ctx := r.Context()
 
-	conn, err := OpenConn(ctx, cnf, envInfo.Grpc, env != "dev")
+	conn, err := OpenConn(ctx, secrets, envInfo.Grpc, env != "dev")
 	if err != nil {
 		log.Println("error in OpenConn", err)
 		w.WriteHeader(http.StatusInternalServerError)
@@ -94,7 +104,7 @@ func Impersonate(w http.ResponseWriter, r *http.Request) {
 			log.Println("unable to extract user information:", email, err)
 		}
 		w.WriteHeader(http.StatusPreconditionFailed)
-		w.Write([]byte(`{"error":"unable to extract user information"}`))
+		w.Write([]byte(`{"error":"Unable to extract user information"}`))
 		return
 	}
 	_ = usr
@@ -117,7 +127,7 @@ func OpenConn(ctx context.Context, cnf *ImpersonationSecrets, grpcUrl string, se
 	opts := []grpc.DialOption{
 		grpc.WithChainUnaryInterceptor(
 			func(ctx context.Context, method string, req, reply interface{}, cc *grpc.ClientConn, invoker grpc.UnaryInvoker, opts ...grpc.CallOption) error {
-				ctx = metadata.AppendToOutgoingContext(ctx, cnf.GrpcKey, cnf.GrpcValue)
+				ctx = metadata.AppendToOutgoingContext(ctx, cnf.SecretKey, cnf.SecretValue)
 				return invoker(ctx, method, req, reply, cc, opts...)
 			},
 		),
@@ -133,10 +143,4 @@ func OpenConn(ctx context.Context, cnf *ImpersonationSecrets, grpcUrl string, se
 		return nil, err
 	}
 	return conn, nil
-}
-
-type AllowedEnvsType map[string]struct {
-	Url  string `json:"url"`
-	Name string `json:"name"`
-	Grpc string `json:"grpc"`
 }
