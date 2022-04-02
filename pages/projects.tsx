@@ -130,6 +130,12 @@ export function getStaticProps() {
             endpoint: '/projects/basic-secure',
         },
         {
+            title: 'Youtube Videos downloader',
+            isExternal: true,
+            endpoint:
+                'https://gist.github.com/Shivam010/ef3783638e09eb448d324bf782464b25',
+        },
+        {
             title: "418 - i'm a teapot",
             endpoint: '/418',
         },
