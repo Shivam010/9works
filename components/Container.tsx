@@ -114,8 +114,7 @@ function Logo(hideLogo: boolean) {
         <Link href={'/'}>
             <a className=" inline-block -ml-2 font-bold font-logo text-3xl select-none hover:scale-125 -rotate-6 duration-700">
                 <span className="select-none hidden sm:block">
-                    9works.
-                    <span className="text-pink-700">tk </span>
+                    9wor<span className="text-pink-700">k</span>s
                 </span>
                 <span className="select-none block sm:hidden mt-3">
                     {/* <Image

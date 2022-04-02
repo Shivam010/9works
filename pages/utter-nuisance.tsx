@@ -11,7 +11,13 @@ export default function UtterNuisance() {
     );
 
     return (
-        <Layout heading={heading} metadata={{ title: 'utter nuisance' }}>
+        <Layout
+            heading={heading}
+            metadata={{
+                title: 'utter nuisance',
+                description: 'This is utter nuisance by Shivam Rathore',
+            }}
+        >
             <div>
                 <blockquote className="mb-5" title="wiki.org/nuisance">
                     <ExternalLink href="https://en.wikipedia.org/wiki/Don%27t_judge_a_book_by_its_cover">

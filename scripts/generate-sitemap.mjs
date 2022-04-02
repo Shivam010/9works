@@ -51,7 +51,10 @@ const RoutesImagesInfo = {
 };
 
 function sitemapInfoOfRoute(route) {
-    route = (route[0] === '/' ? '' : '/') + route;
+    if (route.endsWith('/')) route = route.slice(0, -1);
+    if (!route.startsWith('/')) route = '/' + route;
+    if (route === '/') route = '';
+    if (route.includes('/secure/')) return '';
     const routeInfo = RoutesImagesInfo[route];
     const images = routeInfo
         ? routeInfo.map((o) => {

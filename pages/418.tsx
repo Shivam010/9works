@@ -14,7 +14,10 @@ export default function NotFound() {
     return (
         <Layout
             heading={heading}
-            metadata={{ title: "418 - i'm a teapot @ 9works" }}
+            metadata={{
+                title: "418 - i'm a teapot @ 9works",
+                description: 'Page not found',
+            }}
         >
             <blockquote className="mb-8">
                 <div className="mb-5">

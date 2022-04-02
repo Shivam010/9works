@@ -14,7 +14,11 @@ export default function Concurrency() {
     );
     return (
         <Layout
-            metadata={{ title: 'Concurrency vs Parallelism' }}
+            metadata={{
+                title: 'Concurrency vs Parallelism',
+                description:
+                    "Related to 'Concurrency is not Parallelism' by Robe Pike",
+            }}
             heading={heading}
         >
             <div>
